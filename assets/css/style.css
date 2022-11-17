@@ -1,46 +1,8 @@
-/* 
-Work in your group to implement the following user stories:
-
-As a client, I want to view a single webpage that collects a visitor's contact information.
-
-As a client, I want the landing page to have a header and footer.
-
-As a client, I want the landing page to have an image with a caption.
-
-As a client, I want the landing page to have a contact form.
-
-As a client, I want the landing page to have a polished and accessible UI.
-*/
-
-/* Acceptance Criteria:
-
-It's done when the page uses semantic HTML elements.
-
-It's done when the page uses universal, element, and class selectors in CSS.
-
-It's done when the page features at least three colors in the design.
-
-It's done when the page uses a single font and font family for all text.
-
-It's done when the page uses at least two heading elements (<h1> through <h6>).
-
-It's done when the header is fixed to the top of the page on scroll.
-
-It's done when the header contains a navigation bar with three links that display inline, including a contact link.
-
-It's done when, if the contact link is clicked, the page jumps directly to the contact form.
-
-It's done when the contact form includes input elements for name and email.
-
-It's done when the contact form includes a Send button.
-
-It's done when the image includes a descriptive alt attribute.
-
-It's done when the page is deployed to GitHub Pages.
-
-*/
-
 /* Formatting for entire document. */
+html {
+    scroll-padding-top: 210px; /* height of sticky header */
+  }
+
 * {
     font-family: "Avenir Next", "Century Gothic", sans-serif;
     color: navy;
@@ -52,24 +14,40 @@ It's done when the page is deployed to GitHub Pages.
 
 /* Formatting for the header */
 .header {
-   background-color: gray;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: white;
+    position:sticky;
     width: 100%;
-    padding: 30px;
-    position: sticky;
+    padding: 10px;
     top: 0px;
     overflow: auto;
+    z-index: 1040;
+    border: 3px solid #000;
 }
+
 .header h1 {
-display: inline-block;
-background-color: lightblue;
-border: 15px solid black;
-border-radius: 10px;
-font-size: 48px;
+   align-self: center;
+    display: inline-block;
+    background-color: lightblue;
+    border: 15px solid black;
+    border-radius: 10px;
+    font-size: 48px;
+}
+
+.header img {
+   
+    display: block;
+    float: left;
+    width: 200px;
+    /* border: 3px solid black; */
+    box-shadow: 5px 5px 5px #aaaaaa;
 }
 
 .header nav {
+    align-self: flex-end;
     padding-top: 15px;
-    margin-right: 20px;
+    margin-right: 30px;
     float: right;
     font-size: 20px;
 }
@@ -78,13 +56,36 @@ font-size: 48px;
     display: inline-block;
     margin-left: 25px;
 }
+/* Underline, black text, grab cursor */
+span[data-descr] {
+    position: relative;
+    text-decoration: underline;
+    color: #000;
+    cursor: grab;
+  }
+  /* Position tooltip above the term/phrase, same color as header and nav links, no border-radius, smaller font size */
+span[data-descr]:hover::after {
+    content: attr(data-descr);
+    position: absolute;
+    left: 0px;
+    top: 24px;
+    min-width: 100px;
+    border: 1px #aaaaaa solid;
+    background-color: #13293d;
+    padding: 12px;
+    color: #fff;
+    font-size: 80%;
+    z-index: 1;
+  
+  }
 /* Formatting for the sections in the body. Additional formating for header h2 and paragraph. */
 .section {
     padding-top: 15px;
     margin-right: 20px;
-    float:none;
+    float: none;
     font-size: 20px;
 }
+
 .section h2 {
     font-size: 24px;
     color: orange;
@@ -97,10 +98,10 @@ font-size: 48px;
 
 /* Formatting for the footer */
 #footer {
-font-size: small;
-font-style: italic;
-font-weight: bold;
-padding: 200px;
+    font-size: small;
+    font-style: italic;
+    font-weight: bold;
+    padding: 200px;
 }
 
 /* This impacts everything in the main section of the html */
@@ -110,39 +111,49 @@ main {
 
 /* This impacts just the form */
 form {
-width: 50%;
+    width: 50%;
 }
 
 /* Style inputs with type="text", select elements and textareas */
-input[type=text], select, textarea {
-    width: 100%; /* Full width */
-    padding: 12px; /* Some padding */ 
-    border: 1px solid #ccc; /* Gray border */
-    border-radius: 4px; /* Rounded borders */
-    box-sizing: border-box; /* Make sure that padding and width stays in place */
-    margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
-  }
-  
-  /* Style the submit button with a specific background color etc */
-  input[type=submit] {
+input[type=text],
+select,
+textarea {
+    width: 100%;
+    /* Full width */
+    padding: 12px;
+    /* Some padding */
+    border: 1px solid #ccc;
+    /* Gray border */
+    border-radius: 4px;
+    /* Rounded borders */
+    box-sizing: border-box;
+    /* Make sure that padding and width stays in place */
+    margin-top: 6px;
+    /* Add a top margin */
+    margin-bottom: 16px;
+    /* Bottom margin */
+    resize: vertical
+        /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
     background-color: #04AA6D;
     color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
-    cursor:pointer;
-  }
-  
-  /* When moving the mouse over the submit button, add a darker green color */
-  input[type=submit]:hover {
+    cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
     background-color: #45a049;
-  }
-  
-  /* Add a background color and some padding around the form */
-  .container {
+}
+
+/* Add a background color and some padding around the form */
+.container {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
-  }
+}
