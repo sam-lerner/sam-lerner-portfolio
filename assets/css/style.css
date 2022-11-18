@@ -244,20 +244,21 @@ button {
   min-height: 100%;
   padding: 2rem;
   color: var(--heliotrope);
+    /* outline is like border, but on the outside of the box instead of inside */
+    outline: 2px dashed var(--gin);
+    outline-offset: -2px;
+    transition: all 0.5s ease-in-out;
+  }
 
   .card-column project-1 {
     justify-content: center;
     width: 50vw;
   }
 
-  .card-column older (
-  max-width 25vw;
-)
-  /* outline is like border, but on the outside of the box instead of inside */
-  outline: 2px dashed var(--gin);
-  outline-offset: -2px;
-  transition: all 0.5s ease-in-out;
-}
+  .card-column older {
+  max-width: 25vw;
+  }
+
 
 .code-card .card-header {
   /* use position and negative margins to move title of card over the card's outline and create an overlap effect */
