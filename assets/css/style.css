@@ -10,20 +10,21 @@ html {
 }
 
 :root {
-  --outer-space: #33393f;
+  --outer-space: #a5b4c3;
   --bright-turquoise: #2aefcb;
-  --gin: #e0eae4;
+  --gin: #2c2471;
   --heliotrope: #e866ec;
   --white: white;
-  --tan: tan;
-  --dark-blue: rgb(2, 2, 36);
+  --tan: rgb(192, 184, 174);
+  --top-tail:  rgb(45, 45, 59);
+  --dark-blue: rgb(71, 71, 95);
   --ht: 24vh;
 }
 
 /* set content highlight color and background */
 ::selection {
   background-color: var(--bright-turquoise);
-  color: var(--outer-space);
+  color: var(--gin);
 }
 
 h2,
@@ -44,7 +45,6 @@ h1 {
 
 h2 {
   font-size: 3.5rem;
-  text-align: center;
   margin: 20px;
 }
 
@@ -97,7 +97,7 @@ header,
 footer {
   width: 100%;
   line-height: 60px;
-  background-color: #50053b;
+  background-color: var(--top-tail);
   z-index: 99;
 }
 
@@ -133,7 +133,7 @@ nav a:hover {
 
 body {
   position: relative;
-  font-family: "Goudy Bookletter 1911", sans-serif;
+  font-family: "Avenir Next", "Century Gothic", sans-serif;
   font-size: 1.75rem;
   line-height: 1.5;
   background-color: var(--dark-blue);
@@ -142,12 +142,9 @@ body {
 
 main {
 
-  padding: 60px 0;
+  /* padding: 60px 0; */
 }
 
-img {
-  height: 200px;
-}
 
 li {
   display: inline;
@@ -161,22 +158,45 @@ a {
 }
 
 
-figure {
-  margin-bottom: 40px;
-}
-
-img {
-  display: block;
-  margin: 20px auto;
-}
 
 section {
-  margin-top: var(--ht);
+  /* margin-top: var(--ht); */
   margin-bottom: 0;
   padding: var(--ht) 10px 40px 10px;
   /* padding-top: var(--ht); */
   border-top: 3px solid #DDAF94;
   /* background-color:  #E8CEBF; */
+  display: flex;
+justify-content: space-between;
+}
+
+/* Top banner with photo and line */
+.about-me {
+  background-image: url(../images/horizontal-banner.jpeg);
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: var(--gin);
+}
+
+.about-me-greeting {
+  font-size: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  /* text-align: right; */
+}
+img {
+  display: flex;
+  height: 30vh;
+align-items: center;
+justify-content: center;
+padding-bottom: 10vh;
 }
 
 form {
@@ -212,97 +232,89 @@ button {
   color: #FDF8F5;
 }
 
-/* This section controls the cards */
 
-/* create our main grid with flexbox, use negative margins to offset the padding on the .card-column class */
-.row {
+/* Class Selectors */
+.text-center {
+  text-align: center;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
 }
 
-.justify-center {
-  justify-content: center;
-}
-
-/* using a mobile-first approach, set base column width to be 100% and we'll update it using media queries for larger screen sizes */
-.card-column {
-  flex: 1 0 100%;
-  padding: 1.5rem;
-  /* when the screen resizes, make it so our columns don't jump in size */
-  transition: flex-basis 500ms linear;
-  margin-bottom: 1.5rem;
-}
-
-/* make each code card a flexbox column to align and justify content within it */
-.code-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+.text-left {
+  border-right: 2px solid var(--outer-space);
   min-height: 100%;
-  padding: 2rem;
-  color: var(--heliotrope);
-    /* outline is like border, but on the outside of the box instead of inside */
-    outline: 2px dashed var(--gin);
-    outline-offset: -2px;
-    transition: all 0.5s ease-in-out;
-  }
-
-  .card-column project-1 {
-    justify-content: center;
-    width: 50vw;
-  }
-
-  .card-column older {
-  max-width: 25vw;
-  }
-
-
-.code-card .card-header {
-  /* use position and negative margins to move title of card over the card's outline and create an overlap effect */
-  position: relative;
-  margin: -4rem 0 1.5rem 0;
-  padding: 0.5rem 1rem;
-  background-color: var(--outer-space);
-  color: var(--heliotrope);
-  border: 2px solid var(--gin);
-  border-radius: 8px;
-  transition: all 0.5s ease-in-out;
+  text-align: right;
+  padding-right: 40px;
+  min-width: 20%;
+  max-width: 20%;
 }
-
-/* set an outer and inner drop shadow on the card to create a glowing effect on hover */
-.code-card:hover,
-.code-card:hover .card-header {
-  box-shadow: inset 0px 0px 8px var(--heliotrope), 0 0 15px var(--heliotrope);
-}
-
-/* each card's code block grows to the height of the largest code block on the page, making each card even in height */
-.code-card .code-block {
-  flex-grow: 1;
-}
-
-.code-card pre {
-  /* set styles to make it so code wraps in <pre> instead of overflowing */
-  white-space: pre-wrap;
-  overflow: auto;
-  tab-size: 4;
-  padding: 1.2rem 1rem;
-  color: var(--gin);
-  border-radius: 8px;
-  /* use linear-gradient() function to create a fading background  */
-  background-image: linear-gradient(rgba(232, 102, 236, 0.3) 0%,
-      rgba(232, 102, 236, 0.6) 100%);
+/* Portfolio section formatting */
+.portfolio {
+  padding: 30px;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+}
+.portfolio-grid-wrapper {
+  width: 80%;
+  height: 100rem;
+  display: flex;
+  justify-content: center;
+  padding-left: 40px;
+}
+.portfolio-grid {
+  width: 80vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap 2vw;
 }
 
-/* on <pre> click, select all contents so the code is highlighted */
-.code-card pre:active {
-  user-select: all;
+.portfolio-label {
+  background-color: var(--outer-space);
+  color: var(--gin);
+  padding: 2rem;
 }
 
+/* Projects */
+.project {
+  border: solid;
+  color: var(--tan);
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-decoration: none;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+}
+/* What happens when moused over */
+.project:hover {
+  opacity: 1.0;
+  cursor: grab;
+}
+
+/* Featured project */
+.p-main {
+  grid-column: 1/3;
+  grid-row: span 2;
+  background-image: url(../images/baby-glasses.jpeg);
+  background-size: cover;
+}
+.p-2 {
+  background-image: url(../images/rich-cat.jpeg);
+  background-size: cover;
+}
+.p-3 {
+  background-image: url(../images/IMG_4763.jpg);
+  background-size: cover;
+}
+.p-4 {
+  background-image: url(../images/cake-pillow.jpeg);
+  background-size: cover;
+}
+.p-5 {
+  background-image: url(../images/octopus.jpeg);
+  background-size: cover;
+}
 /* using a mobile-first approach, use `min-width` values going from narrow -> wide for a responsive design */
 @media screen and (min-width: 768px) {
 
@@ -329,12 +341,3 @@ button {
     max-width: 33.333%;
   }
 }
-
-/* Class Selectors */
-.text-center {
-  text-align: center;
-}
-
-/* .text-right {
-  text-align: right;
-} */
