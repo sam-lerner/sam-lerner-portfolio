@@ -11,7 +11,6 @@ Make README
 }
 
 html {
-  /* set 1rem to 10px instead of native 16px to make it easier to calculate font-size values for the rest of the page (e.g. 1.6rem is 16px, 2.0rem is 20px, etc.) */
   font-size: 62.5%;
 }
 
@@ -35,32 +34,32 @@ h6 {
 }
 
 h1 {
-  /* 4rem = 40px (4 * 10px) */
-  font-size: 400%;
+  font-size: 4vw;
   text-align: center;
+  margin: 0.5vh;
 }
 
 h2 {
-  font-size: 200%;
+  font-size: 3vw;
   margin: 1vw;
 }
 
 h3 {
-  font-size: 150%;
+  font-size: 2.5vw;
   text-align: center;
   margin: 20px;
 }
 
 h4 {
-  font-size: 140%;
+  font-size: 2vw;
 }
 
 h5 {
-  font-size: 130%;
+  font-size: 1.5vw;
 }
 
 h6 {
-  font-size: 120%;
+  font-size: 1vw;
 }
 
 p {
@@ -75,16 +74,14 @@ header {
   width: 96%;
   margin: 0 auto;
   padding: 2.5rem;
-  /* text-align: center; */
-  /* Refer to CSS values by the name of the custom property we assigned it */
   background: var(--dark-blue);
   color: var(--tan);
-  /* display: flex;
+  display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
+  justify-content:space-between;
   margin-left: -1.5rem;
-  margin-right: -1.5rem; */
+  margin-right: -1.5rem;
   position: fixed;
   width: 100%;
   top: 0;
@@ -131,7 +128,7 @@ nav a:hover {
 body {
   position: relative;
   font-family: "Avenir Next", "Century Gothic", sans-serif;
-  font-size: 1.75rem;
+  font-size: 1vw;
   line-height: 1.5;
   background-color: var(--dark-blue);
   color: var(--tan);
@@ -328,12 +325,12 @@ button {
 }
 
 /* using a mobile-first approach, use `min-width` values going from narrow -> wide for a responsive design */
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
 
   /* on tablets, set columns to only be 50% of the width and not grow */
   .card-column {
     flex: 0 0 50%;
-    /* max-width: 50%; */
+    max-width: 50%;
   }
 
   /* select the last child to grow to full width if it has space to grow */
