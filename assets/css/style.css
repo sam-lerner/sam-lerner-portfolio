@@ -229,12 +229,12 @@ img {
 .p-main {
   grid-column: span 2;
   grid-row: span 2;
-  background-image: url(../images/horiseon-homepage.jpg);
+  background-image: url(../images/healthy-gigs.jpg);
   background-size: cover;
 }
 
 .p-2 {
-  background-image: url(../images/rich-cat.jpeg);
+  background-image: url(../images/horiseon-homepage.jpg);
   background-size: cover;
 }
 
